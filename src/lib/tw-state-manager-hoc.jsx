@@ -263,7 +263,8 @@ const createRouter = (style, callbacks) => {
         style = 'hash';
     }
 
-    if (Object.prototype.hasOwnProperty.call(routers, style)) {
+    if (Object.prototype.hasOwnProperty.call(routers, style) &&
+        typeof routers[style] === 'function') {
         return new routers[style](callbacks);
     }
 
